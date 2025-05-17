@@ -11,6 +11,9 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 @RequestMapping("/stream")
 public class StreamingController {
 
+    // TEXT_EVENT_STREAM_VALUE (text/event-stream) is used for Server-Sent Events (SSE). This is ideal for streaming data.
+    // The format data: <value>\n\n is required for SSE to work correctly.
+    // Works with browsers, Postman, curl, etc. for real-time updates.
     @GetMapping(path = "/numbers", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public ResponseEntity<StreamingResponseBody> streamNumbers(){
 
